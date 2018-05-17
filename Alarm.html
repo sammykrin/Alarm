@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="bootstrap4/css/bootstrap.css">
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="bootstrap4/font/fontawesome/web-fonts-with-css/css/fontawesome-all.css">
+	<title>Alarm</title>
+	<style>
+	/**{font-family: 'bellefair', serif;}*/
+		@font-face
+		{
+			font-family: 'bellefair-Regular';
+			src:url('google-font/bellefair-Regular.ttf');
+			src:url('google-font/bellefair-Regular.ttf') format('ttf');
+			src:url('google-font/bellefair-Regular.ttf') format('truetype');
+		}
+		#bg{
+			background-image: url("Img/clock.jpg");
+			width: auto;
+			height: 100vh;
+			background-size: cover;
+			background-repeat: no-repeat;
+			color: #fff;	 
+			background-attachment:fixed;
+			font-family: Bellefair-Regular;
+			font-size: 25px; 
+		}
+
+		:hover{
+			background-color: #FEC303;
+			transition:1s
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<div id=bg>
+	<div align="center" style="font-weight: bold;font-size: 50px"><i>Set Alarm</i></div>><br>
+	<div id="Tim" align="center" style="font-size: 100px;font-weight: bold;">Time</div>
+	<input  type="time" id="ct"> 
+	<input type="text"  id="se">
+
+<button class="btn btn-danger btn-md" onclick="set()">Set Alarmm</button>
+<button class="btn btn-info btn md" onclick="Stop()">Stop Alarm</button>
+</div>
+</div>
+
+</body>
+<script> 
+	var am = new Audio("music/AM.mp3")
+	var sec=0;
+	var tm ;
+	var a;
+	var p;
+		
+	function Timer()
+	{
+		var d= new Date();
+		var h=d.getHours();
+		var m=d.getMinutes();
+		var s=d.getSeconds();
+		if (m<=9) {m="0"+m;}
+		if (s<=9) {s="0"+s;}
+		if (h<=9) {h="0"+h;}
+		document.getElementById("Tim").innerHTML=h+":"+m+":"+s;
+		window.setTimeout("Timer()",1000);
+		var tm=h+":"+m;
+		 
+		 if (a==tm) {am.play(); 
+		 if (s==1) {alert(se.value)}
+		 }		
+
+	// alert(tm+"==="+a);
+
+	}
+	Timer();
+
+	function Stop()
+	{
+		var name=prompt('Your name please');
+		a=0;
+		am.pause()
+	}
+
+	function set()
+	{
+		 a=ct.value;
+		 p=se.value;
+	// alert(a)
+	}
+	
+</script>
+<script type="text/javascript" src="bootstrap4/js/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="bootstrap4/js/popper.js"></script>
+	<script type="text/javascript" src="bootstrap4/js/bootstrap.js"></script>
+</html>
